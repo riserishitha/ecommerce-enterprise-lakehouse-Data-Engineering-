@@ -1,0 +1,6 @@
+order_id,customer_id,category,payment_value
+1,C001,Electronics,500
+2,C002,Fashion,200
+3,C001,Electronics,300
+4,C003,Home,150
+5,C004,Sports,250

@@ -1,47 +1,31 @@
-# 🛒 Enterprise E-Commerce Data Lakehouse Pipeline
+# Enterprise E-Commerce Data Lakehouse
 
-This project demonstrates an **enterprise-grade Data Engineering Lakehouse architecture** for an e-commerce platform, supporting both **batch and real-time streaming ingestion**.
+This is a full enterprise-grade Data Engineering project.
 
-It showcases modern tools like **PySpark, Kafka, Airflow, PostgreSQL, Grafana, and Docker**.
+## Features
+- Batch ingestion (CSV/JSON)
+- Kafka streaming ingestion (new orders)
+- PySpark ETL Bronze → Silver → Gold layers
+- Gold analytics exposed to Postgres Warehouse
+- Grafana dashboard ready
+- Docker Compose deployment
 
----
-
-## 🚀 Key Features
-
-- Batch ingestion of historical order data (CSV/JSON)
-- Real-time streaming ingestion of new orders using Apache Kafka
-- Lakehouse architecture with **Bronze → Silver → Gold** layered design
-- Data transformation and analytics using **PySpark + Spark SQL**
-- Workflow orchestration with **Apache Airflow DAGs**
-- Curated Gold datasets loaded into **PostgreSQL Data Warehouse**
-- Dashboard-ready outputs using **Grafana**
-- Fully containerized deployment with **Docker Compose**
-
----
-
-## ⚙️ Technologies Used
-
-| Component         | Tool |
-|------------------|------|
-| Processing Engine | PySpark |
-| Streaming         | Kafka + Spark Structured Streaming |
-| Storage Format    | Parquet (Lakehouse Layers) |
-| Orchestration     | Apache Airflow |
-| Data Warehouse    | PostgreSQL |
-| Visualization     | Grafana |
-| Deployment        | Docker Compose |
-
----
-
-## ▶️ How to Run the Project
+## Run the Pipeline
 
 ```bash
 docker-compose up -d
-
-Run Batch ETL Pipeline
 docker exec -it spark bash
 
 spark-submit jobs/bronze_ingest.py
 spark-submit jobs/silver_transform.py
 spark-submit jobs/gold_aggregations.py
 spark-submit jobs/load_to_postgres.py
+```
+
+## Streaming Orders
+
+```bash
+spark-submit jobs/stream_kafka_orders.py
+```
+
+Grafana runs at: http://localhost:3000
